@@ -16,11 +16,11 @@ const Main = styled.div`
   margin: 0 auto;
 `
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <>
       <Header>
-      <StaticQuery query={`${data}`} />
+        <StaticQuery query={`${data}`} />
       </Header>
       <Main>{children}</Main>
     </>
@@ -28,18 +28,18 @@ const Layout = ({children}) => {
 }
 
 export const data = graphql`
-query site {
-  site {
-    siteMetadata {
-      title
-      description
-      author
-    }
-    children {
-      id
+  query site {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
+      children {
+        id
+      }
     }
   }
-}
 `
 
 Layout.propTypes = {
