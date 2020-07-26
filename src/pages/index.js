@@ -16,7 +16,6 @@ const IndexPage = () => {
           >
             <ProductList />
           </Box>
-          ;
         </Panel>
       </>
     </Layout>

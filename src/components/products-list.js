@@ -4,18 +4,29 @@ import styled from "styled-components"
 import { H3, Text } from "@bigcommerce/big-design"
 
 const ProductViewWrapper = styled.div`
-  max-width: 1000px;
-  margin: 1.5% auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
 
   .product-view {
     background-color: #313440;
     margin: 2% auto;
-    padding: 8%;
+    padding: 2% 2% 0% 2%;
+    width: 750px;
+    height: 500px;
     border-radius: 25px;
+    text-align: center;
+
+    img {
+        width: 550px;
+        height: 350px;
+        padding: 2% 0% 1% 0%;
+    }
 
     a {
       text-decoration: none;
       color: white;
+      margin: none;
     }
   }
 `
@@ -36,7 +47,7 @@ const ProductList = () => {
                 </div>
                 <>
                   <H3 color="white">{node.name}</H3>
-                  <Text color="white">{node.sku}</Text>
+                  <Text color="white">{node.price.toFixed(2)}</Text>
                 </>
               </Link>
             </div>
