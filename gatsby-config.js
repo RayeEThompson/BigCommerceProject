@@ -32,7 +32,7 @@ module.exports = {
         fonts: [
           {
             family: `Epilogue`,
-            variants: [`200`, `400`, `500`],
+            variants: [`200`, `400`, `500`, `800`],
           },
         ],
       },

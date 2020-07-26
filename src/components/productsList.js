@@ -1,7 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
-import { H3, Text } from "@bigcommerce/big-design"
+import { H3 } from "@bigcommerce/big-design"
 
 const ProductViewWrapper = styled.div`
   display: grid;
@@ -9,24 +9,34 @@ const ProductViewWrapper = styled.div`
   margin: 0 auto;
 
   .product-view {
-    background-color: #313440;
+    background-color: #5E637A;
     margin: 2% auto;
-    padding: 2% 2% 0% 2%;
-    width: 750px;
-    height: 500px;
+    padding: 4% 0%;
+    width: 650px;
+    height: 525px;
     border-radius: 25px;
     text-align: center;
 
     img {
-        width: 550px;
+        width: 500px;
         height: 350px;
-        padding: 2% 0% 1% 0%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 25px;
     }
 
     a {
       text-decoration: none;
       color: white;
       margin: none;
+      cursor: pointer;
+    }
+
+    p {
+      font-family: "Epilogue", sans-serif;
+      font-size: 100%;
+      font-weight: 400;
     }
   }
 `
@@ -39,7 +49,7 @@ const ProductList = () => {
         <ProductViewWrapper>
           {data.allBigCommerceProducts.edges.map(({ node }, index) => (
             <div key={index} className="product-view">
-              <Link to={`/product-details`} state={{ choice: index }}>
+              <Link to={`/productDetails`} state={{ choice: index }}>
                 <div>
                   {node.images.map(({ url_standard, description }, i) => {
                     return <img key={i} src={url_standard} alt={description} />
@@ -47,7 +57,7 @@ const ProductList = () => {
                 </div>
                 <>
                   <H3 color="white">{node.name}</H3>
-                  <Text color="white">{node.price.toFixed(2)}</Text>
+                  <p color="white">${node.price.toFixed(2)}</p>
                 </>
               </Link>
             </div>
@@ -63,7 +73,7 @@ export const bcQuery = graphql`
     allBigCommerceProducts {
       edges {
         node {
-          id
+          bigcommerce_id
           name
           sku
           price
