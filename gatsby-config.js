@@ -10,19 +10,21 @@ module.exports = {
   plugins: [
     `gatsby-source-bigcommerce`,
     {
-      resolve: 'gatsby-source-bigcommerce',
+      resolve: "gatsby-source-bigcommerce",
       options: {
-          // REQUIRED
-          clientId: `${process.env.BC_CLIENTID}`,
-          secret: `${process.env.BC_CLIENTSECRET}`,
-          accessToken: `${process.env.BC_ACCESSTOKEN}`,
-          storeHash: `${process.env.BC_STOREHASH}`,
-          endpoints: {
-            BigCommerceProducts: '/catalog/products?include=images,variants,custom_fields,options,modifiers,videos',
-            BigCommerceCategories: '/catalog/categories',
-            BigCommerceBrands: "/catalog/brands"
-          },
-      }
+        // REQUIRED
+        clientId: `${process.env.BC_CLIENTID}`,
+        secret: `${process.env.BC_CLIENTSECRET}`,
+        accessToken: `${process.env.BC_ACCESSTOKEN}`,
+        storeHash: `${process.env.BC_STOREHASH}`,
+        authToken: `${process.env.BC_AUTHTOKEN}`,
+        endpoints: {
+          BigCommerceProducts:
+            "/catalog/products?include=images,variants,custom_fields,options,modifiers,videos",
+          BigCommerceCategories: "/catalog/categories",
+          BigCommerceBrands: "/catalog/brands"
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -30,7 +32,7 @@ module.exports = {
         fonts: [
           {
             family: `Epilogue`,
-            variants: [`200`, `400`, `500`]
+            variants: [`200`, `400`, `500`],
           },
         ],
       },
@@ -54,7 +56,6 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

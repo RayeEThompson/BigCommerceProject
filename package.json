@@ -16,6 +16,7 @@
     "gatsby-plugin-sharp": "^2.6.14",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-source-bigcommerce": "^0.3.7",
+    "gatsby-source-bigcommerce-crosslinked": "^0.1.6",
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-source-graphql": "^2.6.2",
     "gatsby-transformer-sharp": "^2.5.7",

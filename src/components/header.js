@@ -13,17 +13,11 @@ const HeaderWrapper = styled.header`
     font-family: 'Epilogue', sans-serif;
     font-weight: 400;
   }
-  h4 {
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 200;
-    margin: 18px 10px;
-  }
 `
 
 const Header = () => (
     <HeaderWrapper>
-        <h1>Potted</h1>
-        <h4>...just plants in really nice pots</h4>
+        <h1>Plants-R-Us</h1>
     </HeaderWrapper>
 )
 
