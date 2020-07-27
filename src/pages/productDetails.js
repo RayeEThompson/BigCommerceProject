@@ -40,7 +40,6 @@ const ProductDetailsWrapper = styled.div`
 
 export const ProductDetails = ({ location }) => {
   if (location.state) {
-    const edge = location.state.choice
     return (
       <Layout>
         <H0 margin="medium" paddingLeft="xxxLarge">
@@ -125,7 +124,7 @@ export const ProductDetails = ({ location }) => {
       </Layout>
     )
   } else {
-    return `null`
+    return <Layout></Layout>
   }
 }
 
