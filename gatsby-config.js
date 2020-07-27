@@ -27,15 +27,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Epilogue`,
-            variants: [`200`, `400`, `500`, `800`],
-          },
+          `Epilogue`,
+          `source sans pro\:200,400,500,800` // you can also specify font weights and styles
         ],
-      },
+        display: 'swap'
+      }
     },
     `gatsby-plugin-react-helmet`,
     {
