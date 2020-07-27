@@ -38,87 +38,95 @@ const ProductDetailsWrapper = styled.div`
   }
 `
 
-const ProductDetails = ({ location }) => {
-  return (
-    <Layout>
-      <H0 margin="medium" paddingLeft="xxxLarge">
-        Product Details
-      </H0>
-      <StaticQuery
-        query={singleProduct}
-        render={data => (
-          <ProductDetailsWrapper>
-            {console.log(data, location)}
-            <div className="img-div">
-              {data.allBigCommerceProducts.edges[
-                `${location.state.choice}`
-              ].node.images.map(({ url_standard, description }, i) => {
-                return <img key={i} src={url_standard} alt={description} />
-              })}
-            </div>
-            <div>
-              <H1>
-                {
-                  data.allBigCommerceProducts.edges[`${location.state.choice}`]
-                    .node.name
-                }
-              </H1>
-              <H4>
-                {(() => {
-                  switch (
-                    data.allBigCommerceProducts.edges[
-                      `${location.state.choice}`
-                    ].node.brand_id
-                  ) {
-                    case data.allBigCommerceBrands.edges[0].node.bigcommerce_id:
-                      return data.allBigCommerceBrands.edges[0].node.name
-                    case data.allBigCommerceBrands.edges[1].node.bigcommerce_id:
-                      return data.allBigCommerceBrands.edges[1].node.name
-                    case data.allBigCommerceBrands.edges[2].node.bigcommerce_id:
-                      return data.allBigCommerceBrands.edges[2].node.name
-                    case data.allBigCommerceBrands.edges[3].node.bigcommerce_id:
-                      return data.allBigCommerceBrands.edges[3].node.name
-                    case data.allBigCommerceBrands.edges[4].node.bigcommerce_id:
-                      return data.allBigCommerceBrands.edges[4].node.name
-                    default:
-                      return data.allBigCommerceBrands.edges[0].node.name
-                  }
-                })()}
-              </H4>
-              <p className="product-price">
-                $
+export const ProductDetails = ({ location }) => {
+  if (location.state) {
+    const edge = location.state.choice
+    return (
+      <Layout>
+        <H0 margin="medium" paddingLeft="xxxLarge">
+          Product Details
+        </H0>
+        <StaticQuery
+          query={singleProduct}
+          render={data => (
+            <ProductDetailsWrapper>
+              {console.log(data, location)}
+              {console.log(location.state.choice)}
+              <div className="img-div">
                 {data.allBigCommerceProducts.edges[
-                  `${location.state.choice}`
-                ].node.price.toFixed(2)}
-              </p>
-              <div className="buttons">
-                <AddToCartButton>
-                  {
-                    data.allBigCommerceProducts.edges[
-                      `${location.state.choice}`
-                    ].node.bigcommerce_id
-                  }
-                </AddToCartButton>
+                  location.state.choice
+                ].node.images.map(({ url_standard, description }, i) => {
+                  return <img key={i} src={url_standard} alt={description} />
+                })}
               </div>
-            </div>
-            <div className="product-description-wrapper">
-              <hr></hr>
-              <H4 padding="large">Product Description</H4>
-              <p
-                className="product-description"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    data.allBigCommerceProducts.edges[
-                      `${location.state.choice}`
-                    ].node.description,
-                }}
-              ></p>
-            </div>
-          </ProductDetailsWrapper>
-        )}
-      />
-    </Layout>
-  )
+              <div>
+                <H1>
+                  {
+                    data.allBigCommerceProducts.edges[location.state.choice]
+                      .node.name
+                  }
+                </H1>
+                <H4>
+                  {(() => {
+                    switch (
+                      data.allBigCommerceProducts.edges[location.state.choice]
+                        .node.brand_id
+                    ) {
+                      case data.allBigCommerceBrands.edges[0].node
+                        .bigcommerce_id:
+                        return data.allBigCommerceBrands.edges[0].node.name
+                      case data.allBigCommerceBrands.edges[1].node
+                        .bigcommerce_id:
+                        return data.allBigCommerceBrands.edges[1].node.name
+                      case data.allBigCommerceBrands.edges[2].node
+                        .bigcommerce_id:
+                        return data.allBigCommerceBrands.edges[2].node.name
+                      case data.allBigCommerceBrands.edges[3].node
+                        .bigcommerce_id:
+                        return data.allBigCommerceBrands.edges[3].node.name
+                      case data.allBigCommerceBrands.edges[4].node
+                        .bigcommerce_id:
+                        return data.allBigCommerceBrands.edges[4].node.name
+                      default:
+                        return data.allBigCommerceBrands.edges[0].node.name
+                    }
+                  })()}
+                </H4>
+                <p className="product-price">
+                  $
+                  {data.allBigCommerceProducts.edges[
+                    location.state.choice
+                  ].node.price.toFixed(2)}
+                </p>
+                <div className="buttons">
+                  <AddToCartButton>
+                    {
+                      data.allBigCommerceProducts.edges[location.state.choice]
+                        .node.bigcommerce_id
+                    }
+                  </AddToCartButton>
+                </div>
+              </div>
+              <div className="product-description-wrapper">
+                <hr></hr>
+                <H4 padding="large">Product Description</H4>
+                <p
+                  className="product-description"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      data.allBigCommerceProducts.edges[location.state.choice]
+                        .node.description,
+                  }}
+                ></p>
+              </div>
+            </ProductDetailsWrapper>
+          )}
+        />
+      </Layout>
+    )
+  } else {
+    return `null`
+  }
 }
 
 export const singleProduct = graphql`
