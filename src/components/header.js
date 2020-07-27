@@ -58,7 +58,7 @@ const Header = (data) => (
           <Link to={`/`}>Products</Link>
         </li>
         <li>
-          <Link to={`/blog`}>Blog</Link>
+        <a href={`https://rayeethompsonblog.netlify.app/`}>Blog</a>
         </li>
         <li>
           <a href={`https://rachaels-store.mybigcommerce.com/cart.php`}>Cart</a>
