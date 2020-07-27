@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, padding } from "@bigcommerce/big-design"
+import { Button } from "@bigcommerce/big-design"
 
 
 const AddToCartButton = ({ children }) => {
