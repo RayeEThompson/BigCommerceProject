@@ -22,7 +22,7 @@ module.exports = {
           BigCommerceProducts:
             "/catalog/products?include=images,variants,custom_fields,options,modifiers,videos",
           BigCommerceCategories: "/catalog/categories",
-          BigCommerceBrands: "/catalog/brands"
+          BigCommerceBrands: "/catalog/brands",
         },
       },
     },
@@ -31,10 +31,10 @@ module.exports = {
       options: {
         fonts: [
           `Epilogue`,
-          `source sans pro\:200,400,500,800` // you can also specify font weights and styles
+          `source sans pro\:200,400,500,800`, // you can also specify font weights and styles
         ],
-        display: 'swap'
-      }
+        display: "swap",
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
@@ -44,7 +44,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
