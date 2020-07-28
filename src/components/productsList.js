@@ -20,9 +20,8 @@ const ProductViewWrapper = styled.div`
     img {
         width: 500px;
         height: 350px;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: cover;
+        object-fit: cover;
+        object-position: center center;
         border-radius: 25px;
     }
 

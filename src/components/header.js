@@ -4,16 +4,17 @@ import styled from "styled-components"
 
 const HeaderWrapper = styled.header`
   background-color: #313440;
+  padding-bottom: -15px;
+  margin-bottom: -15px;
   color: white;
-  margin: 0 auto;
-  padding: 0.5% 0.5%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 
   h1 {
-    margin: 1.5% 1%;
+    margin: 15px 3px;
+    padding-left: 20px;
     font-family: "Epilogue", sans-serif;
-    font-size: 275%;
+    font-size: 2em;
     font-weight: 400;
     a {
       text-decoration: none;
@@ -23,17 +24,18 @@ const HeaderWrapper = styled.header`
 
   div {
     font-family: "Epilogue", sans-serif;
-    font-size: 150%;
+    font-size: 1em;
     font-weight: 800;
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: right;
     ul {
-      margin: 3% auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       list-style-type: none;
-      display: flex;
-      flex-direction: row;
-      justify-content: right;
-      text-align: center;
       li {
-        padding: 0% 2%;
+        padding-top: 20px;
+        padding-right: 30px;
         a {
           text-decoration: none;
           color: white;
@@ -56,9 +58,6 @@ const Header = (data) => (
       <ul>
         <li>
           <Link to={`/`}>Products</Link>
-        </li>
-        <li>
-        <a href={`https://rayeethompsonblog.netlify.app/`}>Blog</a>
         </li>
         <li>
           <a href={`https://rachaels-store.mybigcommerce.com/cart.php`}>Cart</a>

@@ -26,14 +26,18 @@ const ProductDetailsWrapper = styled.div`
     grid-column: 1/3;
   }
 
+  .buttons {
+    a {
+      text-decoration: none;
+    }
+  }
+
   .img-div {
     img {
       width: 450px;
-      height: 450px;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-size: cover;
-      border-radius: 20px;
+      object-fit: cover;
+      object-position: center center;
+      padding-right: 10%;
     }
   }
 `
